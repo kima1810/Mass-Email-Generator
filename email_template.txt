@@ -1,0 +1,6 @@
+Hi {{first_name}},
+
+Sample Message.
+
+Best,
+Name
