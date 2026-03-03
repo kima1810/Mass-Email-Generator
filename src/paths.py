@@ -1,0 +1,20 @@
+import os
+import sys
+from pathlib import Path
+
+
+def resource_path(relative_path):
+    """Get absolute path to resource, works for dev and for PyInstaller."""
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath('.')
+    return os.path.join(base_path, relative_path)
+
+
+def get_token_path():
+    """Get path for token.json in user's home directory."""
+    home_dir = Path.home()
+    app_dir = home_dir / '.email_draft_generator'
+    app_dir.mkdir(exist_ok=True)
+    return str(app_dir / 'token.json')
